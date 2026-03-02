@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="de"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>Features</title>
+<meta content="DroneLog – digitale Flugbuch- und Teamverwaltung (BOS-Fokus). Export, Rollen, Nachweise und mehr." name="description"/>
+<link as="style" href="assets/css/style.css" rel="preload"/>
+<link href="assets/css/style.css" rel="stylesheet"/>
+<!-- Lädt theme.json und setzt CSS-Variablen (dein Wunsch: Styles im JSON) -->
+<script defer="" src="assets/js/applyTheme.js"></script>
+<script defer="" src="assets/js/main.js"></script>
+</head><body><header class="site-header">
+<div class="container header-inner">
+<a aria-label="DroneLog Startseite" class="brand" href="index.html#top">
+<span class="brand-logo">
+<img alt="DroneLog Logo" src="assets/img/logo-dronelog.jpg"/>
+</span>
+<span class="brand-name">Drone-Log.de</span>
+</a>
+<nav aria-label="Hauptnavigation" class="nav">
+<a href="projektinfos.html">Projektinfos</a>
+<a href="ansprechpartner.html">Ansprechpartner</a>
+<a class="active" href="features.html">Features</a>
+<a href="preise.html">Preise</a>
+<a href="kontakt.html">Kontakt</a>
+</nav>
+<div class="header-actions">
+<button aria-controls="mobileNav" aria-expanded="false" class="btn burger" data-burger="" type="button">Menü</button>
+<a class="btn primary" href="anfragen.html">Jetzt anfragen</a>
+<a class="btn" href="https://drone-log.de/" rel="noopener" target="_blank">Login</a>
+</div>
+</div>
+<!-- Mobile Nav -->
+<div class="container" data-mobile-nav="" data-open="false" id="mobileNav" style="display:none;"></div>
+<script>
+      // Minimal inline: Mobile-Nav nur als Panel erzeugen, ohne extra CSS-Datei
+      (function () {
+        const panel = document.querySelector('[data-mobile-nav]');
+        const btn = document.querySelector('[data-burger]');
+        if (!panel || !btn) return;
+
+        const links = [
+          ["#projektinfos", "Projektinfos"],
+          ["#ansprechpartner", "Ansprechpartner"],
+          ["#features", "Features"],
+          ["#preise", "Preise"],
+          ["#kontakt", "Kontakt"]
+        ];
+
+        panel.innerHTML = `
+          <div class="card pad" style="margin: 10px 0; border-radius: 14px;">
+            <div style="display:flex; flex-direction:column; gap:8px;">
+              ${links.map(([href, label]) => `<a class="btn" style="justify-content:flex-start" href="${href}">${label}</a>`).join("")}
+            </div>
+          </div>
+        `;
+
+        const update = () => {
+          const open = panel.getAttribute('data-open') === 'true';
+          panel.style.display = open ? 'block' : 'none';
+        };
+        const obs = new MutationObserver(update);
+        obs.observe(panel, { attributes: true, attributeFilter: ['data-open'] });
+        update();
+      })();
+    </script>
+</header><main class="page"><section class="container"><h1>Features</h1><p class="lead">Platzhalter-Seite – Inhalt folgt. Sag mir kurz, was hier genau rein soll (Text, Tabellen, Screenshots, Downloads), dann baue ich’s dir passend ein.</p><p><a class="btn" href="index.html#top">Zurück zur Startseite</a></p></section></main><footer aria-label="Footer" class="footer">
+<div class="container footer-grid">
+<div>
+<div style="display:flex; align-items:center; gap:10px; margin-bottom:10px;">
+<span aria-hidden="true" class="brand-logo" style="width:34px; height:34px;">
+<img alt="" src="assets/img/logo-dronelog.jpg"/>
+</span>
+<strong>Drone-Log.de</strong>
+</div>
+<div class="small">
+          Digitale Flugbuch- &amp; Teamverwaltung – gebaut für reale Workflows (inkl. BOS).
+        </div>
+<div class="small" style="margin-top:10px;">© <span id="year"></span> DroneLog</div>
+<script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</div>
+<div>
+<strong>Rechtliches</strong>
+<div class="small" style="margin-top:10px; display:grid; gap:8px;">
+<a href="/impressum">Impressum</a>
+<a href="/datenschutz">Datenschutz</a>
+<a href="/agb">AGB</a>
+</div>
+</div>
+<div>
+<strong>Kontakt</strong>
+<div class="small" style="margin-top:10px; display:grid; gap:8px;">
+<a href="mailto:kontakt@drone-log.de">kontakt@drone-log.de</a>
+<a href="#kontakt">Anfrageformular</a>
+<a href="/status">Status</a>
+</div>
+</div>
+</div>
+</footer></body></html>

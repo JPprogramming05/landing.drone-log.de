@@ -1,0 +1,27 @@
+{
+  "colors": {
+    "bg": "#0c1220",
+    "surface": "#111a2e",
+    "surface2": "#0f172a",
+    "text": "#e8eefc",
+    "muted": "#a9b7d6",
+    "primary": "#3b82f6",
+    "primary2": "#2563eb",
+    "border": "rgba(255,255,255,0.10)"
+  },
+  "layout": {
+    "maxWidth": "1120px",
+    "headerHeight": "72px",
+    "radius": "16px"
+  },
+  "typography": {
+    "fontFamily": "system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif",
+    "baseSize": "16px",
+    "h1": "46px",
+    "h2": "30px",
+    "lineHeight": "1.5"
+  },
+  "effects": {
+    "shadow": "0 10px 30px rgba(0,0,0,0.35)"
+  }
+}
