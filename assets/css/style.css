@@ -216,39 +216,78 @@ a{color:inherit; text-decoration:none}
   object-fit:cover;
 }
 
+/* Mobile: show full images (no cropping) */
+@media (max-width: 980px){
+  .section .feature .media{
+    height:auto;
+  }
+  .section .feature .media img{
+    height:auto;
+    max-height:70vh;
+    object-fit:contain;
+    background:rgba(255,255,255,0.02);
+  }
+}
+
 /* Partners marquee */
 .partner-sep{
   height:1px;
-  margin:36px 0 0;
+  margin:60px 0 0;
   background:linear-gradient(90deg, rgba(255,255,255,0), var(--c-border), rgba(255,255,255,0));
 }
+
 .partners{
-  padding:22px 0 10px;
+  padding:70px 0 50px;
+  position:relative;
 }
+
 .partners-title{
-  margin:0 0 14px;
+  margin:0 0 30px;
   font-size:18px;
-  letter-spacing:0.06em;
+  letter-spacing:0.08em;
   text-transform:uppercase;
   color:var(--c-muted);
+  text-align:center;
 }
+
+/* Edge fade (works reliably on mobile; avoids mask-image issues) */
+.partners::before,
+.partners::after{
+  content:"";
+  position:absolute;
+  top:0;
+  width:140px;
+  height:100%;
+  z-index:2;
+  pointer-events:none;
+}
+.partners::before{
+  left:0;
+  background:linear-gradient(to right, rgba(12,18,32,1), rgba(12,18,32,0));
+}
+.partners::after{
+  right:0;
+  background:linear-gradient(to left, rgba(12,18,32,1), rgba(12,18,32,0));
+}
+
 .marquee{
   position:relative;
   overflow:hidden;
   width:100%;
-  padding:10px 0 22px;
-  mask-image: linear-gradient(90deg, transparent, #000 10%, #000 90%, transparent);
+  padding:20px 0 40px;
 }
+
 .marquee__track{
   display:flex;
-  gap:18px;
+  gap:70px;
   align-items:center;
   width:max-content;
-  animation: marquee 28s linear infinite;
+  animation: marquee 35s linear infinite;
 }
+
 .logo-pill{
   flex:0 0 auto;
-  padding:10px 14px;
+  padding:14px 24px;
   border-radius:999px;
   border:1px solid var(--c-border);
   background:rgba(17,26,46,0.35);
@@ -256,14 +295,139 @@ a{color:inherit; text-decoration:none}
   align-items:center;
   justify-content:center;
 }
+
 .logo-pill img{
-  height:28px;
+  height:90px;
   width:auto;
   display:block;
-  opacity:0.85;
-  filter: grayscale(1) brightness(1.25);
+  opacity:0.95;
+  filter: grayscale(100%) brightness(0.55) contrast(1.25);
+  transition:0.2s ease;
 }
+
+/* Animation */
 @keyframes marquee{
   0%{ transform: translateX(0); }
   100%{ transform: translateX(-50%); }
+}
+
+/* Mobile Optimization */
+@media (max-width: 768px){
+  .partners{
+    padding:50px 0 35px;
+  }
+  .partners::before,
+  .partners::after{
+    width:70px;
+  }
+  .marquee__track{
+    gap:40px;
+  }
+  .logo-pill{
+    padding:10px 16px;
+  }
+  .logo-pill img{
+    height:60px;
+  }
+}
+
+
+
+/* ============================= */
+/* ===== Mobile menu polish ===== */
+/* ============================= */
+
+/* When the burger opens the menu, make the dropdown/overlay readable.
+   Supports common toggle class names: .open / .active / .is-open */
+@media (max-width: 980px){
+  .nav.open,
+  .nav.active,
+  .nav.is-open{
+    display:flex !important;
+    flex-direction:column;
+    gap:14px;
+    position:fixed;
+    left:12px;
+    right:12px;
+    top:calc(var(--l-headerHeight) + 12px);
+    padding:16px;
+    border-radius:18px;
+    background:rgba(7, 11, 19, 0.78);
+    border:1px solid var(--c-border);
+    box-shadow:0 18px 55px rgba(0,0,0,0.55);
+    backdrop-filter:saturate(1.25) blur(16px);
+    -webkit-backdrop-filter:saturate(1.25) blur(16px);
+    z-index:2500;
+  }
+
+  /* Make links inside the opened menu high-contrast and chunky */
+  .nav.open a,
+  .nav.active a,
+  .nav.is-open a{
+    display:block;
+    padding:14px 14px;
+    border-radius:16px;
+    background:rgba(255,255,255,0.06);
+    border:1px solid rgba(255,255,255,0.10);
+    color:var(--c-text);
+    font-size:18px;
+    font-weight:800;
+    letter-spacing:0.2px;
+  }
+  .nav.open a:hover,
+  .nav.active a:hover,
+  .nav.is-open a:hover{
+    background:rgba(255,255,255,0.10);
+  }
+
+  /* Optional: blur/dim the page behind the menu.
+     Works if JS toggles a class on body or header.
+     We support several common names. */
+  body.menu-open::before,
+  body.nav-open::before,
+  body.is-menu-open::before,
+  .site-header.menu-open::after,
+  .site-header.nav-open::after,
+  .site-header.is-menu-open::after{
+    content:"";
+    position:fixed;
+    left:0; right:0;
+    top:var(--l-headerHeight);
+    bottom:0;
+    background:rgba(0,0,0,0.40);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    z-index:2400;
+  }
+
+  /* If overlay is attached to header, ensure it shows */
+  .site-header.menu-open::after,
+  .site-header.nav-open::after,
+  .site-header.is-menu-open::after{
+    top:var(--l-headerHeight);
+  }
+}
+
+/* ============================= */
+/* ===== Mobile header buttons === */
+/* ============================= */
+
+@media (max-width: 520px){
+  .header-actions{
+    gap:8px;
+  }
+  .btn{
+    height:34px;
+    padding:0 12px;
+    font-size:13px;
+    border-radius:14px;
+  }
+
+  /* Make "Jetzt anfragen" feel less oversized on mobile, closer to the other pills */
+  .btn.primary{
+    border-color:rgba(59,130,246,0.55);
+    background:rgba(59,130,246,0.20);
+    box-shadow:none;
+  }
+  .btn.primary:hover{filter:none}
 }
