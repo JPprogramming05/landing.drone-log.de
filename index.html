@@ -16,7 +16,7 @@
 <a class="skip-link" href="#content">Zum Inhalt springen</a>
 <header class="site-header">
 <div class="container header-inner">
-<a aria-label="DroneLog Startseite" class="brand" href="#top">
+<a aria-label="DroneLog Startseite" class="brand" href="index.html#top">
 <span class="brand-logo">
 <img alt="DroneLog Logo" src="assets/img/logo-dronelog.jpg"/>
 </span>
@@ -24,7 +24,7 @@
 </a>
 <nav aria-label="Hauptnavigation" class="nav">
 <a href="projektinfos.html">Projektinfos</a>
-<a href="ansprechpartner.html" href="ansprechpartner.html">Ansprechpartner</a>
+<a href="ansprechpartner.html">Ansprechpartner</a>
 <a href="features.html">Features</a>
 <a href="preise.html">Preise</a>
 <a href="kontakt.html">Kontakt</a>
@@ -36,58 +36,105 @@
 </div>
 </div>
 <!-- Mobile Nav -->
-<div class="container" data-mobile-nav="" data-open="false" id="mobileNav" style="display:none;"></div>
-<script>
-      // Minimal inline: Mobile-Nav nur als Panel erzeugen, ohne extra CSS-Datei
-      (function () {
-        const panel = document.querySelector('[data-mobile-nav]');
-        const btn = document.querySelector('[data-burger]');
-        if (!panel || !btn) return;
-
-        const links = [
-          ["#projektinfos", "Projektinfos"],
-          /*["#ansprechpartner", "Ansprechpartner"],*/
-          ["#features", "Features"],
-          ["#preise", "Preise"],
-          ["#kontakt", "Kontakt"]
-        ];
-
-        panel.innerHTML = `
-          <div class="card pad" style="margin: 10px 0; border-radius: 14px;">
-            <div style="display:flex; flex-direction:column; gap:8px;">
-              ${links.map(([href, label]) => `<a class="btn" style="justify-content:flex-start" href="${href}">${label}</a>`).join("")}
-            </div>
-          </div>
-        `;
-
-        const update = () => {
-          const open = panel.getAttribute('data-open') === 'true';
-          panel.style.display = open ? 'block' : 'none';
-        };
-        const obs = new MutationObserver(update);
-        obs.observe(panel, { attributes: true, attributeFilter: ['data-open'] });
-        update();
-      })();
-    </script>
+<div class="mobile-nav" data-mobile-nav="" data-open="false" id="mobileNav"></div>
 </header>
 <main id="content">
 <!-- HERO / Kurz-Infobereich -->
+
 <section class="hero" id="top">
-<div class="container">
-<div class="hero-card">
-<h1>Willkommen bei DroneLog</h1>
-<p>
-            DroneLog ist deine digitale Flugbuch- und Teamverwaltung mit speziellem Fokus auf BOS!
-            Sauberere Dokumentationen, Einfache Team und Drohnen Verwaltung, Dokumentationspflichten einhalten - ganz ohne Chaos.
-          </p>
-<ul aria-label="Kernpunkte" class="hero-points">
-<li>Saubere Dokumentation und Wartungsprotokolle</li>
-<li>Entwickelt von BOS für BOS</li>
-<li>Entscheidungserleichterung im Einsatzfall</li>
-</ul>
-</div>
-</div>
+  <div class="container hero-grid">
+    <div class="hero-copy">
+      <div class="hero-badge">Von BOS für BOS · Dokumentationspflicht & Nachweise · Schnelle Einsatztaktik</div>
+      <h1>DroneLog – Flugbuch &amp; Teamverwaltung, die im Einsatz funktioniert.</h1>
+      <p class="lead">
+        Dokumentiere Flüge, Wartungen und Zuständigkeiten sauber – mit klaren Rollen, schnellen Exporten und einem Workflow,
+        der auch unter Zeitdruck passt.
+      </p>
+
+      <div class="hero-cta">
+        <a class="btn primary" href="anfragen.html">Jetzt anfragen</a>
+        <a class="btn ghost" href="features.html">Features ansehen</a>
+      </div>
+
+      <div class="hero-chips" aria-label="Highlights">
+        <span class="chip">BOS-Ready</span>
+        <span class="chip">Schnelle Flugübersicht</span>
+        <span class="chip">Integrierte Checklisten</span>
+        <span class="chip">Dokumentationen</span>
+      </div>
+    </div>
+
+    <div class="hero-visual card">
+      <div class="hero-visual-top">
+        <div class="dot"></div><div class="dot"></div><div class="dot"></div>
+        <span class="hero-visual-title">Beispiel-Übersicht</span>
+      </div>
+
+      <div class="hero-visual-body">
+        <div class="mini-row">
+          <div class="mini-label">Letzter Flug</div>
+          <div class="mini-value">Ausbildung · 00:18h</div>
+        </div>
+        <div class="mini-row">
+          <div class="mini-label">Export</div>
+          <div class="mini-value">PDF · Monatsbericht</div>
+        </div>
+        <div class="mini-row">
+          <div class="mini-label">Wartung</div>
+          <div class="mini-value">OK · Akkuzyklen im Blick</div>
+        </div>
+
+        <div class="mini-metrics">
+          <div class="mini-metric">
+            <div class="mini-metric-num">X+</div>
+            <div class="mini-metric-lbl">Flüge</div>
+          </div>
+          <div class="mini-metric">
+            <div class="mini-metric-num">X</div>
+            <div class="mini-metric-lbl">Gliederungen</div>
+          </div>
+          <div class="mini-metric">
+            <div class="mini-metric-num">X%</div>
+            <div class="mini-metric-lbl">Export-Quote</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </section>
+
+
+<section class="section stats" aria-label="Kennzahlen">
+  <div class="container">
+    <div class="stats-inner">
+      <div>
+        <div class="kicker">Kennzahlen</div>
+        <h2 style="margin-top:10px;">Kurz &amp; knackig – was DroneLog heute schon leistet!</h2>
+        <p class="small" style="margin-top:8px;">DroneLog ist bereits heute in vielen BOS vertreten. Das zeigen auch unsere stetig wachsenden Zahlen!</p>
+      </div>
+
+      <div class="stats-grid">
+        <div class="stat card pad">
+          <div class="stat-num">X+</div>
+          <div class="stat-lbl">Flüge dokumentiert</div>
+        </div>
+        <div class="stat card pad">
+          <div class="stat-num">X</div>
+          <div class="stat-lbl">BOS-Gliederungen nutzen DroneLog</div>
+        </div>
+        <div class="stat card pad">
+          <div class="stat-num">X</div>
+          <div class="stat-lbl">Einzelnutzer</div>
+        </div>
+        <div class="stat card pad">
+          <div class="stat-num">X</div>
+          <div class="stat-lbl">Über DroneLog verwaltete Drohnenbücher</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- 5 Feature-Blöcke, abwechselnd Bild/Text links/rechts -->
 <section class="section" id="projektinfos">
 <div class="container-fluid feature">
@@ -201,7 +248,7 @@
 </div>
 </form>
 <p class="small" style="margin-top:10px;">
-            Hinweis: Login-Link zeigt aktuell auf <code>/login</code> als Platzhalter.
+            Hinweis: Leck Eier.
           </p>
 </div>
 </div>

@@ -35,39 +35,7 @@
 </div>
 </div>
 <!-- Mobile Nav -->
-<div class="container" data-mobile-nav="" data-open="false" id="mobileNav" style="display:none;"></div>
-<script>
-      // Minimal inline: Mobile-Nav nur als Panel erzeugen, ohne extra CSS-Datei
-      (function () {
-        const panel = document.querySelector('[data-mobile-nav]');
-        const btn = document.querySelector('[data-burger]');
-        if (!panel || !btn) return;
-
-        const links = [
-          ["#projektinfos", "Projektinfos"],
-          ["#ansprechpartner", "Ansprechpartner"],
-          ["#features", "Features"],
-          ["#preise", "Preise"],
-          ["#kontakt", "Kontakt"]
-        ];
-
-        panel.innerHTML = `
-          <div class="card pad" style="margin: 10px 0; border-radius: 14px;">
-            <div style="display:flex; flex-direction:column; gap:8px;">
-              ${links.map(([href, label]) => `<a class="btn" style="justify-content:flex-start" href="${href}">${label}</a>`).join("")}
-            </div>
-          </div>
-        `;
-
-        const update = () => {
-          const open = panel.getAttribute('data-open') === 'true';
-          panel.style.display = open ? 'block' : 'none';
-        };
-        const obs = new MutationObserver(update);
-        obs.observe(panel, { attributes: true, attributeFilter: ['data-open'] });
-        update();
-      })();
-    </script>
+<div class="mobile-nav" data-mobile-nav="" data-open="false" id="mobileNav"></div>
 </header>
 <main id="content" class="section">
   <div class="container">
