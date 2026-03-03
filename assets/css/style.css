@@ -1231,3 +1231,148 @@ body {
   font-size: 14px;
   max-width: 95ch;
 }
+
+
+/* ========================================= */
+/* MOBILE LAYOUT HARDENING (no desktop change) */
+/* ========================================= */
+
+/* Stop accidental horizontal scroll on small screens */
+@media (max-width: 520px){
+  html, body{
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+
+  /* Ensure containers never exceed viewport */
+  .container{
+    width: 100%;
+    max-width: 100%;
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  /* Any card/grid should not force overflow */
+  .card, .topic-card, .info-card, .video-row, .video-text{
+    max-width: 100%;
+  }
+
+  /* Hero: prevent side-by-side overflow (stack) */
+  .hero,
+  .hero-grid,
+  .hero-inner,
+  .hero-content,
+  .hero-visual{
+    width: 100%;
+    max-width: 100%;
+  }
+
+  /* Common two-column sections: force single column on narrow phones */
+  .section-grid,
+  .feature-row,
+  .row,
+  .grid,
+  .grid-2,
+  .grid-two,
+  .grid-split{
+    grid-template-columns: 1fr !important;
+  }
+
+  /* Images/iframes inside media boxes always fit */
+  img, iframe{
+    max-width: 100%;
+  }
+
+  /* Pills / tags wrap instead of pushing width */
+  .pills,
+  .tags,
+  .chips{
+    flex-wrap: wrap;
+  }
+
+  /* Buttons in header wrap nicely */
+  header .nav-actions,
+  header .actions,
+  header .header-actions{
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+}
+
+
+
+
+/* ===== MOBILE HERO REAL FIX ===== */
+@media (max-width: 900px){
+
+  .hero-grid{
+    grid-template-columns: 1fr !important;
+    gap:20px;
+  }
+
+  .hero-visual{
+    order:2;
+    width:100%;
+    max-width:100%;
+  }
+
+  .hero-copy{
+    order:1;
+  }
+
+  /* stop hero card pushing width */
+  .hero-visual.card{
+    width:100%;
+    max-width:100%;
+  }
+
+}
+
+/* ===== PARTNER LOGOS MOBILE SCALE ===== */
+@media (max-width: 900px){
+
+  .partner img,
+  .partners img,
+  .partner-logo img{
+    transform:scale(0.5);
+    transform-origin:center;
+  }
+
+}
+
+
+/* ========================================= */
+/* MOBILE: HERO + OVERFLOW (keep desktop unchanged) */
+/* ========================================= */
+@media (max-width: 900px){
+  /* Force stacking even if grid rules get weird */
+  .hero-grid{
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 20px !important;
+  }
+  .hero-copy{ order: 1; }
+  .hero-visual{ order: 2; width: 100% !important; max-width: 100% !important; }
+
+  /* Prevent any section from causing horizontal overflow */
+  #content, main, section{
+    max-width: 100%;
+    overflow-x: clip;
+  }
+}
+
+/* ========================================= */
+/* MOBILE: PARTNER MARQUEE SCALE (logos + pills) */
+/* ========================================= */
+@media (max-width: 900px){
+  .marquee .logo-pill{
+    padding: 10px 14px !important;
+    border-radius: 18px !important;
+  }
+  .marquee .logo-pill img{
+    height: 42px !important; /* ~50% smaller */
+    width: auto !important;
+    transform: none !important; /* keep crisp */
+  }
+}
