@@ -61,3 +61,36 @@
   markActive(desktopNav);
   markActive(panel);
 })();
+
+
+/* YouTube embeds: load iframe only on http(s); show thumbnail+link on file:// */
+(function(){
+  const embeds = document.querySelectorAll('.video-embed[data-youtube-id]');
+  if(!embeds.length) return;
+
+  const isFile = location.protocol === 'file:';
+  embeds.forEach(el => {
+    const id = el.getAttribute('data-youtube-id');
+    if(!id) return;
+
+    if(isFile){
+      el.innerHTML = `
+        <div class="yt-local">
+          <a href="https://www.youtube.com/watch?v=${id}" target="_blank" rel="noopener">
+            <img src="https://i.ytimg.com/vi/${id}/hqdefault.jpg" alt="YouTube Video">
+            <span>Video auf YouTube öffnen</span>
+          </a>
+          <div class="yt-hint">Hinweis: YouTube-Embeds funktionieren lokal (file://) oft nicht. Bitte über GitHub Pages oder einen lokalen Webserver testen.</div>
+        </div>
+      `;
+    }else{
+      const src = `https://www.youtube-nocookie.com/embed/${id}?rel=0`;
+      el.innerHTML = `
+        <iframe src="${src}" title="YouTube Video" loading="lazy"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowfullscreen></iframe>
+      `;
+    }
+  });
+})();
+
