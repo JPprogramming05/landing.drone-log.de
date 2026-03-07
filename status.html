@@ -4,15 +4,14 @@
 <meta content="width=device-width, initial-scale=1" name="viewport"/>
 <title>Status – DroneLog</title>
 <meta content="DroneLog – digitale Flugbuch- und Teamverwaltung (BOS-Fokus). Export, Rollen, Nachweise und mehr." name="description"/>
-<link as="style" href="assets/css/style.css?v=2" rel="preload"/>
-<link href="assets/css/style.css?v=2" rel="stylesheet"/>
+<link as="style" href="assets/css/style.css?v=3" rel="preload"/>
+<link href="assets/css/style.css?v=3" rel="stylesheet"/>
 <script defer="" src="assets/js/applyTheme.js"></script>
 <script defer="" src="assets/js/main.js"></script>
-  <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon-32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="assets/img/favicon-16.png">
-  <link rel="apple-touch-icon" sizes="180x180" href="assets/img/apple-touch-icon.png">
-  <link rel="icon" type="image/png" sizes="512x512" href="assets/img/favicon-512.png">
-
+<link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="assets/img/favicon-16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="assets/img/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="512x512" href="assets/img/favicon-512.png">
 </head><body>
 <div class="background-fixed"></div><header class="site-header">
 <div class="container header-inner">
@@ -23,7 +22,7 @@
 <span class="brand-name">Drone-Log.de</span>
 </a>
 <nav aria-label="Hauptnavigation" class="nav">
-<a class="active" href="projektinfos.html">Projektinfos</a>
+<a href="projektinfos.html">Projektinfos</a>
 <a href="ansprechpartner.html">Ansprechpartner</a>
 <a href="features.html">Features</a>
 <a href="preise.html">Preise</a>
@@ -35,20 +34,34 @@
 <a class="btn" href="https://drone-log.de/" rel="noopener" target="_blank">Login</a>
 </div>
 </div>
-<!-- Mobile Nav -->
 <div class="mobile-nav" data-mobile-nav="" data-open="false" id="mobileNav"></div>
-</header><main id="content" class="section">
-  <div class="container">
-    <div class="card pad">
-      <h1 style="margin-top:0;">Status</h1>
-      
-<p>Status (Platzhalter)</p>
-<p>Hier könnt ihr später z. B. aktuelle Verfügbarkeit, Wartungen und Incidents veröffentlichen.</p>
-
+</header>
+<main class="legal-page">
+  <section class="container legal-wrap">
+    <div class="legal-hero">
+      <div class="kicker">Systemstatus</div>
+      <h1 style="margin-top:10px;">Status</h1>
+      <p class="lead" style="margin-top:10px; max-width:72ch;">Status-Seite als vorbereitete Oberfläche für den späteren Live-Check der Base44-Instanz. Der automatische Abruf kann im nächsten Schritt angebunden werden.</p>
     </div>
-  </div>
-</main><!-- Partner Marquee -->
-<footer aria-label="Footer" class="footer">
+
+    <div class="status-grid">
+      <div class="card pad">
+        <div class="status-pill"><span class="status-dot"></span> Statusprüfung vorbereitet</div>
+        <p style="margin-top:16px;">Die Seite ist bereits so aufgebaut, dass hier später der Online-/Offline-Status der Base44-Website ausgegeben werden kann.</p>
+      </div>
+      <div class="card pad">
+        <strong>Nächster Schritt</strong>
+        <p style="margin-top:12px;">Im nächsten Update kann die Seite eine definierte Base44-URL abrufen und anschließend sichtbar ausgeben, ob der Dienst erreichbar ist oder nicht.</p>
+      </div>
+    </div>
+
+    <div class="card pad">
+      <h2 style="margin-top:0;">Aktueller Stand</h2>
+      <p>Momentan ist die Status-Seite bewusst noch ohne Live-Abfrage aufgebaut. Layout, Header, Footer und Inhalt sind bereits im Stil der restlichen Website angelegt, damit später nur noch die eigentliche Prüfung ergänzt werden muss.</p>
+      <p class="status-note" style="margin-top:14px;">Sobald du mir die Base44-Zielseite nennst oder wir den Check konkret verdrahten, ersetze ich diesen Platzhalter durch die echte Statuslogik.</p>
+    </div>
+  </section>
+</main><footer aria-label="Footer" class="footer">
 <div class="container footer-grid">
 <div>
 <div style="display:flex; align-items:center; gap:10px; margin-bottom:10px;">
