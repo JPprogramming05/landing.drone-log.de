@@ -13,12 +13,12 @@
 
     panel.innerHTML = `
       <div class="mobile-panel">
+        <div class="mobile-actions">
+          <a class="btn" href="https://drone-log.de/" target="_blank" rel="noopener">Login</a>
+          <a class="btn primary" href="anfragen.html">Jetzt anfragen</a>
+        </div>
         <div class="mobile-links">
           ${links.map(l => `<a class="mobile-link" href="${l.href}">${l.label}</a>`).join('')}
-        </div>
-        <div class="mobile-actions">
-          <a class="btn primary" href="anfragen.html">Jetzt anfragen</a>
-          <a class="btn" href="https://drone-log.de/" target="_blank" rel="noopener">Login</a>
         </div>
       </div>
     `;
@@ -29,6 +29,7 @@
     panel.setAttribute('data-open', String(nextOpen));
     panel.classList.toggle('open', nextOpen);
     btn.setAttribute('aria-expanded', String(nextOpen));
+    btn.setAttribute('aria-label', nextOpen ? 'Menü schließen' : 'Menü öffnen');
     document.body.classList.toggle('menu-open', nextOpen);
   }
 
