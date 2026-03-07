@@ -1376,3 +1376,43 @@ body {
     transform: none !important; /* keep crisp */
   }
 }
+
+
+/* ===== MOBILE WIDTH HARDENING ===== */
+@media (max-width: 900px){
+  *, *::before, *::after{
+    min-width: 0;
+  }
+
+  .container,
+  .container-fluid,
+  .card,
+  .pad,
+  .hero-copy,
+  .stats-inner,
+  .stats-grid,
+  .feature,
+  .feature > *,
+  .footer-grid,
+  .mobile-panel{
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  h1, h2, h3, p, li, a, span, div{
+    overflow-wrap: anywhere;
+    word-break: break-word;
+  }
+
+  .hero .container.hero-grid{
+    grid-template-columns: 1fr !important;
+  }
+
+  .section .feature,
+  .feature,
+  .stats-grid,
+  .stats-inner,
+  .footer-grid{
+    grid-template-columns: 1fr !important;
+  }
+}
